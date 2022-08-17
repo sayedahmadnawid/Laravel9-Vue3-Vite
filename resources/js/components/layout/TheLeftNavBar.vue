@@ -1,202 +1,64 @@
 <template>
-    <TransitionRoot as="template" :show="sidebarOpen">
-        <Dialog
-            as="div"
-            class="relative z-40 md:hidden"
-            @close="sidebarOpen = false"
-        >
-            <TransitionChild
-                as="template"
-                enter="transition-opacity ease-linear duration-300"
-                enter-from="opacity-0"
-                enter-to="opacity-100"
-                leave="transition-opacity ease-linear duration-300"
-                leave-from="opacity-100"
-                leave-to="opacity-0"
-            >
-                <div class="fixed inset-0 bg-gray-600 bg-opacity-75" />
-            </TransitionChild>
-
-            <div class="fixed inset-0 flex z-40">
-                <TransitionChild
-                    as="template"
-                    enter="transition ease-in-out duration-300 transform"
-                    enter-from="-translate-x-full"
-                    enter-to="translate-x-0"
-                    leave="transition ease-in-out duration-300 transform"
-                    leave-from="translate-x-0"
-                    leave-to="-translate-x-full"
-                >
-                    <DialogPanel
-                        class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-gray-800"
-                    >
-                        <TransitionChild
-                            as="template"
-                            enter="ease-in-out duration-300"
-                            enter-from="opacity-0"
-                            enter-to="opacity-100"
-                            leave="ease-in-out duration-300"
-                            leave-from="opacity-100"
-                            leave-to="opacity-0"
-                        >
-                            <div class="absolute top-0 right-0 -mr-12 pt-2">
-                                <button
-                                    type="button"
-                                    class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                                    @click="sidebarOpen = false"
-                                >
-                                    <span class="sr-only">Close sidebar</span>
-                                    <XIcon
-                                        class="h-6 w-6 text-white"
-                                        aria-hidden="true"
-                                    />
-                                </button>
-                            </div>
-                        </TransitionChild>
-                        <div class="flex-shrink-0 flex items-center px-4">
-                            <img
-                                class="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                                alt="Workflow"
-                            />
-                        </div>
-                        <div class="mt-5 flex-1 h-0 overflow-y-auto">
-                            <nav class="px-2 space-y-1">
-                                <a
-                                    v-for="item in navigation"
-                                    :key="item.name"
-                                    :href="item.href"
-                                    :class="[
-                                        item.current
-                                            ? 'bg-gray-900 text-white'
-                                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                        'group flex items-center px-2 py-2 text-base font-medium rounded-md',
-                                    ]"
-                                >
-                                    <component
-                                        :is="item.icon"
-                                        :class="[
-                                            item.current
-                                                ? 'text-gray-300'
-                                                : 'text-gray-400 group-hover:text-gray-300',
-                                            'mr-4 flex-shrink-0 h-6 w-6',
-                                        ]"
-                                        aria-hidden="true"
-                                    />
-                                    {{ item.name }}
-                                </a>
-                            </nav>
-                        </div>
-                    </DialogPanel>
-                </TransitionChild>
-                <div class="flex-shrink-0 w-14" aria-hidden="true">
-                    <!-- Dummy element to force sidebar to shrink to fit close icon -->
+        <!-- Account profile -->
+        <div class="xl:flex-shrink-0 xl:w-64 xl:border-r xl:border-gray-200 bg-white">
+          <div class="pl-4 pr-6 py-6 sm:pl-6 lg:pl-8 xl:pl-0">
+            <div class="flex items-center justify-between">
+              <div class="flex-1 space-y-8">
+                <div class="space-y-8 sm:space-y-0 sm:flex sm:justify-between sm:items-center xl:block xl:space-y-8">
+                  <!-- Profile -->
+                  <div class="flex items-center space-x-3">
+                    <div class="flex-shrink-0 h-12 w-12">
+                      <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=256&h=256&q=80" alt="" />
+                    </div>
+                    <div class="space-y-1">
+                      <div class="text-sm font-medium text-gray-900">Debbie Lewis</div>
+                      <a href="#" class="group flex items-center space-x-2.5">
+                        <svg class="h-5 w-5 text-gray-400 group-hover:text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-sm text-gray-500 group-hover:text-gray-900 font-medium">debbielewis</span>
+                      </a>
+                    </div>
+                  </div>
+                  <!-- Action buttons -->
+                  <div class="flex flex-col sm:flex-row xl:flex-col">
+                    <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 xl:w-full">New Project</button>
+                    <button type="button" class="mt-3 inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 xl:ml-0 xl:mt-3 xl:w-full">Invite Team</button>
+                  </div>
                 </div>
+                <!-- Meta info -->
+                <div class="flex flex-col space-y-6 sm:flex-row sm:space-y-0 sm:space-x-8 xl:flex-col xl:space-x-0 xl:space-y-6">
+                  <div class="flex items-center space-x-2">
+                    <BadgeCheckIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    <span class="text-sm text-gray-500 font-medium">Pro Member</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <CollectionIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    <span class="text-sm text-gray-500 font-medium">8 Projects</span>
+                  </div>
+                </div>
+              </div>
             </div>
-        </Dialog>
-    </TransitionRoot>
-
-    <!-- Static sidebar for desktop -->
-    <div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
-        <!-- Sidebar component, swap this element with another sidebar if you like -->
-        <div class="flex-1 flex flex-col min-h-0 bg-gray-800">
-            <div class="flex items-center h-16 flex-shrink-0 px-4 bg-gray-900">
-                <img
-                    class="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                    alt="Workflow"
-                />
-            </div>
-            <div class="flex-1 flex flex-col overflow-y-auto">
-                <nav class="flex-1 px-2 py-4 space-y-1">
-                    <a
-                        v-for="item in navigation"
-                        :key="item.name"
-                        :href="item.href"
-                        :class="[
-                            item.current
-                                ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                            'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
-                        ]"
-                    >
-                        <component
-                            :is="item.icon"
-                            :class="[
-                                item.current
-                                    ? 'text-gray-300'
-                                    : 'text-gray-400 group-hover:text-gray-300',
-                                'mr-3 flex-shrink-0 h-6 w-6',
-                            ]"
-                            aria-hidden="true"
-                        />
-                        {{ item.name }}
-                    </a>
-                </nav>
-            </div>
+          </div>
         </div>
-    </div>
-    <!-- Sidebar End-->
+
 </template>
 
-<script>
-import {
-    Dialog,
-    DialogPanel,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    TransitionChild,
-    TransitionRoot,
-} from "@headlessui/vue";
+<script setup>
 
-import {
-    BellIcon,
-    CalendarIcon,
-    ChartBarIcon,
-    FolderIcon,
-    HomeIcon,
-    InboxIcon,
-    MenuAlt2Icon,
-    UsersIcon,
-    XIcon,
-} from "@heroicons/vue/outline";
-import { SearchIcon } from "@heroicons/vue/solid";
 
-export default {
-    data() {
-        return {
-            sidebarOpen: false,
-            navigation: [
-                { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-                { name: "Team", href: "#", icon: UsersIcon, current: false },
-                {
-                    name: "Projects",
-                    href: "#",
-                    icon: FolderIcon,
-                    current: false,
-                },
-                {
-                    name: "Calendar",
-                    href: "#",
-                    icon: CalendarIcon,
-                    current: false,
-                },
-                {
-                    name: "Documents",
-                    href: "#",
-                    icon: InboxIcon,
-                    current: false,
-                },
-                {
-                    name: "Reports",
-                    href: "#",
-                    icon: ChartBarIcon,
-                    current: false,
-                },
-            ],
-        };
-    },
-};
+const navigation = [
+  { name: 'Dashboard', href: '#', current: true },
+  { name: 'Domains', href: '#', current: false },
+]
+const userNavigation = [
+  { name: 'Your Profile', href: '#' },
+  { name: 'Settings', href: '#' },
+  { name: 'Sign out', href: '#' },
+]
+
+const activityItems = [
+  { project: 'Workcation', commit: '2d89f0c8', environment: 'production', time: '1h' },
+  // More items...
+]
 </script>
