@@ -62,10 +62,10 @@
                         </div>
                         <div class="mt-5 flex-1 h-0 overflow-y-auto">
                             <nav class="px-2 space-y-1">
-                                <a
+                                <router-link
                                     v-for="item in navigation"
                                     :key="item.name"
-                                    :href="item.href"
+                                    :to="item.href"
                                     :class="[
                                         item.current
                                             ? 'bg-gray-900 text-white'
@@ -83,8 +83,9 @@
                                         ]"
                                         aria-hidden="true"
                                     />
+                                    
                                     {{ item.name }}
-                                </a>
+                                </router-link>
                             </nav>
                         </div>
                     </DialogPanel>
@@ -173,7 +174,7 @@ export default {
                 { name: "Team", href: "#", icon: UsersIcon, current: false },
                 {
                     name: "Projects",
-                    href: "#",
+                    href: "test",
                     icon: FolderIcon,
                     current: false,
                 },

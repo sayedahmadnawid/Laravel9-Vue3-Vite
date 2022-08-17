@@ -10,10 +10,12 @@
 
 <script>
 import TheHeader from "./components/layout/TheHeader.vue";
-
+import TheLeftNavBar from "./components/layout/TheLeftNavBar.vue";
 export default {
     components: {
+        TheLeftNavBar,
         TheHeader,
+        
     }
 };
 </script>
