@@ -5,11 +5,11 @@
     <div class="relative min-h-full flex flex-col">
         <the-header></the-header>
         <!-- 3 column wrapper -->
-        <div class="flex-grow w-full max-w-7xl mx-auto xl:px-8 lg:flex">
+        <div class="flex-grow w-full mx-auto xl:px-8 lg:flex">
             <div class="flex-1 min-w-0 bg-white xl:flex">
                 <!-- Left sidebar & main wrapper -->
                 <the-left-nav-bar></the-left-nav-bar>
-                <!-- Content List -->
+                <!-- Content -->
                 <div class=" p-3 my-2  ">
                     <router-view></router-view>
                 </div>
@@ -33,30 +33,7 @@ export default {
     data() {
         return {
             projects: [
-                {
-                    name: "Workcation",
-                    href: "#",
-                    siteHref: "#",
-                    repoHref: "#",
-                    repo: "debbielewis/workcation",
-                    tech: "Laravel",
-                    lastDeploy: "3h ago",
-                    location: "United states",
-                    starred: true,
-                    active: true,
-                },
-                {
-                    name: "Workcation",
-                    href: "#",
-                    siteHref: "#",
-                    repoHref: "#",
-                    repo: "debbielewis/workcation",
-                    tech: "Laravel",
-                    lastDeploy: "3h ago",
-                    location: "United states",
-                    starred: true,
-                    active: true,
-                },
+               
                 // More projects...
             ],
             activityItems: [

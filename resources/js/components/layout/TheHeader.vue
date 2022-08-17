@@ -10,7 +10,6 @@
               <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=300" alt="Workflow" />
             </div>
           </div>
-
           <!-- Search section -->
           <div class="flex-1 flex justify-center lg:justify-end">
             <div class="w-full px-2 lg:px-6">
@@ -94,8 +93,5 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ]
 
-const activityItems = [
-  { project: 'Workcation', commit: '2d89f0c8', environment: 'production', time: '1h' },
-  // More items...
-]
+
 </script>
