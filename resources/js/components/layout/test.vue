@@ -1,5 +1,31 @@
+<!--
+  This example requires Tailwind CSS v2.0+ 
+  
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
 <template>
-    
+
+  <!-- Background color split screen for large screens -->
+  <div class="fixed top-0 left-0 w-1/2 h-full bg-white" aria-hidden="true" />
+  <div class="fixed top-0 right-0 w-1/2 h-full bg-gray-50" aria-hidden="true" />
+  <div class="relative min-h-full flex flex-col">
+
+
+    <!-- 3 column wrapper -->
+    <div class="flex-grow w-full max-w-7xl mx-auto xl:px-8 lg:flex">
+      <!-- Left sidebar & main wrapper -->
+      <div class="flex-1 min-w-0 bg-white xl:flex">
         <!-- Account profile -->
         <div class="xl:flex-shrink-0 xl:w-64 xl:border-r xl:border-gray-200 bg-white">
           <div class="pl-4 pr-6 py-6 sm:pl-6 lg:pl-8 xl:pl-0">
@@ -120,7 +146,10 @@
             </li>
           </ul>
         </div>
+      </div>
 
+    </div>
+  </div>
 </template>
 
 <script setup>
